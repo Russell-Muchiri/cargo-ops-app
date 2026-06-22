@@ -1,0 +1,85 @@
+{
+  "app_name": "Cargo Ops",
+  "design_context": "Mobile-first PWA logistics operations tool. Used outdoors in low light. Utility, not a marketing site.",
+  "theme": "Light",
+  "archetype": "Swiss & High-Contrast (Functional, Industrial)",
+  "typography": {
+    "primary_font": "Chivo",
+    "secondary_font": "IBM Plex Sans",
+    "rules": {
+      "base_size": "min 14px across all text",
+      "large_text": "20px+ for number plates, driver names, and departure times",
+      "weight": "Bold weight for number plates, driver names, and key figures",
+      "contrast": "High contrast, easily readable outdoors at dusk"
+    }
+  },
+  "colors": {
+    "brand_accent": "#1D6B5A",
+    "background": "#F1F5F9",
+    "card_background": "#FFFFFF",
+    "text_primary": "#0F172A",
+    "text_secondary": "#475569",
+    "color_chips": {
+      "red": "#E53E3E",
+      "blue": "#3182CE",
+      "yellow": "#D69E2E",
+      "green": "#38A169",
+      "orange": "#DD6B20",
+      "purple": "#805AD5",
+      "usage": "Solid filled rounded squares, min 20x20px. Never as text labels alone."
+    },
+    "status_pills": {
+      "waiting": "#94A3B8",
+      "in_progress": "#D97706",
+      "in_transit": "#2563EB",
+      "complete": "#16A34A"
+    }
+  },
+  "spacing_and_layout": {
+    "strategy": "Mobile-first, single-column scrollable lists. No hamburger menus, no sidebars, no modals. Everything inline.",
+    "tap_targets": "Minimum 44px height on every interactive element (buttons, checkboxes, inputs)",
+    "cards": "White cards with solid borders or slight shadow to pop against the light gray background",
+    "padding": "Generous internal padding for readability (p-4 to p-6 inside cards)"
+  },
+  "components": {
+    "status_pill": {
+      "description": "Full-width rounded pill at the top of each truck card.",
+      "behavior": "Color changes with status. Advances via tap (waiting -> loading -> departed -> arrived -> complete)."
+    },
+    "color_chip": {
+      "description": "Solid colored chips (min 20x20px, rounded-sm) to represent sellers. NEVER text labels alone."
+    },
+    "buttons": {
+      "primary": "bg-[#1D6B5A] text-white min-h-[44px] rounded-md font-bold w-full",
+      "action": "Large, unmistakable tap targets."
+    },
+    "forms": {
+      "description": "Inline only. No modals. Inputs must have min-height of 44px. Clear focus states."
+    }
+  },
+  "icons": {
+    "library": "lucide-react",
+    "usage": "Functional only (e.g., checkmarks, copy link). Avoid decorative icons."
+  },
+  "testing": {
+    "requirement": "All interactive and key informational elements MUST include a data-testid attribute.",
+    "format": "kebab-case, role-based (e.g., data-testid=\"truck-status-pill\", data-testid=\"seller-checkin-btn\")"
+  },
+  "pwa_manifest": {
+    "name": "Cargo Ops",
+    "short_name": "Cargo Ops",
+    "theme_color": "#1D6B5A",
+    "background_color": "#F1F5F9",
+    "display": "standalone"
+  },
+  "instructions_to_main_agent": [
+    "DO NOT use Inter for fonts. Stick to Chivo and IBM Plex Sans from Google Fonts.",
+    "Build mobile-first views only. The UI should look like a native mobile app even on desktop.",
+    "Ensure all .js files (not .tsx) are used for React components.",
+    "Strictly adhere to the 44px minimum height for ALL interactive elements.",
+    "Do not use Shadcn Dialogs, Sheets, or Popovers. All UI must be inline and scrollable.",
+    "Implement real-time sync via polling logic in the React components.",
+    "Add data-testid attributes to all buttons, inputs, and status indicators.",
+    "Never display the 6 seller color chips as text alone; they must always render as solid color blocks."
+  ]
+}
